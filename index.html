@@ -15,16 +15,16 @@
 <body>
   <h1 id="saluto"></h1>
   <p id="data"></p>
-</body>
 <script>
   function aggiorna() {
-    const giornoSettimana = ['Domenica','Lunedì','Martedì','Mercoledì','Giovedì','Venerdì','Sabato'];
     const ora = new Date();
     const h = ora.getHours();
     const saluto = h < 13 ? "Buongiorno" : (h < 18 ? "Buon pomeriggio" : "Buonasera");
-    const giorno = giornoSettimana[ora.getDay()];
     document.getElementById("saluto").textContent = saluto + " Antonio";
-    document.getElementById("data").textContent = giorno + ", " ora.toLocaleString("it-IT");
+    document.getElementById("data").textContent = ora.toLocaleString("it-IT", {
+      weekday: "long", day: "numeric", month: "long", year: "numeric",
+      hour: "2-digit", minute: "2-digit", second: "2-digit"
+    });
   }
   aggiorna();
   setInterval(aggiorna, 1000);
