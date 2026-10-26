@@ -14,13 +14,17 @@
 </head>
 <body>
   <h1 id="saluto"></h1>
+  <p id="giorno"></p>
   <p id="data"></p>
 <script>
   function aggiorna() {
+    const giornoSettimana = ['Domenica','Lunedì','Martedì','Mercoledì','Giovedì','Venerdì','Sabato'];
     const ora = new Date();
     const h = ora.getHours();
     const saluto = h < 13 ? "Buongiorno" : (h < 18 ? "Buon pomeriggio" : "Buonasera");
+    const giorno = giornoSettimana[ora.getDay()];
     document.getElementById("saluto").textContent = saluto + " Antonio";
+    document.getElementById("giorno").textContent = giorno + ", ";
     document.getElementById("data").textContent = ora.toLocaleString("it-IT");
   }
   aggiorna();
