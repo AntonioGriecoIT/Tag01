@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Saluto</title>
+<style>
+  body { font-family: -apple-system, sans-serif; display: flex; flex-direction: column;
+         align-items: center; justify-content: center; height: 100vh; margin: 0;
+         text-align: center; background: #111; color: #fff; }
+  h1 { font-size: 2rem; margin: 0 0 .5rem; }
+  p { font-size: 1.3rem; margin: 0; opacity: .8; }
+</style>
+</head>
+<body>
+  <h1 id="saluto"></h1>
+  <p id="data"></p>
+<script>
+  function aggiorna() {
+    const ora = new Date();
+    const h = ora.getHours();
+    const saluto = h < 13 ? "Buongiorno" : (h < 18 ? "Buon pomeriggio" : "Buonasera");
+    document.getElementById("saluto").textContent = saluto + " Antonio";
+    document.getElementById("data").textContent = ora.toLocaleString("it-IT");
+  }
+  aggiorna();
+  setInterval(aggiorna, 1000);
+</script>
+</body>
+</html>
